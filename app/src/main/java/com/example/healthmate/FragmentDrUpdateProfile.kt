@@ -74,7 +74,7 @@ class FragmentDrUpdateProfile : Fragment() {
 
         drRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val patientData = snapshot.getValue(PatientData::class.java)
+                val patientData = snapshot.getValue(Doctor::class.java)
 
                 if (patientData != null) {
                     editTextFirstname.text = Editable.Factory.getInstance().newEditable(patientData.firstname)
@@ -82,7 +82,7 @@ class FragmentDrUpdateProfile : Fragment() {
                     edittextPhone.text = Editable.Factory.getInstance().newEditable(patientData.phone)
                     edittextEmailAddress.text = Editable.Factory.getInstance().newEditable(patientData.email)
                     edittextUsername.text = Editable.Factory.getInstance().newEditable(patientData.username)
-                    edittextDesignation.text = Editable.Factory.getInstance().newEditable(patientData.dob)
+                    edittextDesignation.text = Editable.Factory.getInstance().newEditable(patientData.designation)
 
                     Log.d("FirebaseData", "DrName: ${patientData.firstname}, Email: ${patientData.lastname}")
                 }
@@ -101,35 +101,40 @@ class FragmentDrUpdateProfile : Fragment() {
         val email = edittextEmailAddress.text.toString()
         val username = edittextUsername.text.toString()
         val designation = edittextDesignation.text.toString()
-        val password = edittextPassword.text.toString()
 
-        // Create a PatientData object with the updated details
-        if (password.isNotEmpty())
-        {
-            val updatedDr = DrData(drId, firstName, lastName, phone, email, username, password, designation)
-            // Update the doctor details in the Firebase Realtime Database
-            drRef.setValue(updatedDr)
-                .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Your details updated successfully", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Failed to update details", Toast.LENGTH_SHORT).show()
-                }
-        }
-        else {
-            val updatedPatient = DrDataNoPwd(drId, firstName, lastName, phone, email, username, designation)
-            // Update the doctor details in the Firebase Realtime Database
-            drRef.setValue(updatedPatient)
-                .addOnSuccessListener {
-                    Toast.makeText(requireContext(), "Your details and password updated successfully", Toast.LENGTH_LONG).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Failed to update your details and password ", Toast.LENGTH_SHORT).show()
-                }
-        }
+        // Fetch existing patient data from Firebase
+        drRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    val existingDoctor = dataSnapshot.getValue(Doctor::class.java)
 
+                    // Update only non-empty fields
+                    existingDoctor?.apply {
+                        if (firstName.isNotEmpty()) this.firstname = firstName
+                        if (lastName.isNotEmpty()) this.lastname = lastName
+                        if (phone.isNotEmpty()) this.phone = phone
+                        if (email.isNotEmpty()) this.email = email
+                        if (username.isNotEmpty()) this.username = username
+                        if (designation.isNotEmpty()) this.designation = designation
+                    }
 
+                    // Update the patient details in the Firebase Realtime Database
+                    drRef.setValue(existingDoctor)
+                        .addOnSuccessListener {
+                            Toast.makeText(requireContext(), "Your details updated successfully", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(requireContext(), "Failed to update patient details", Toast.LENGTH_SHORT).show()
+                        }
+                } else {
+                    Log.e("FragmentDrUpdateProfile", "Patient with ID $drId not found in the database")
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.e("FragmentDrUpdateProfile", "Error fetching patient data from the database: $databaseError")
+            }
+        })
     }
-
 
 }

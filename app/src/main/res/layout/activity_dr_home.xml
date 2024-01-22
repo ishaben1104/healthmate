@@ -45,7 +45,7 @@ tools:context=".DrHomeActivity">
     app:menu="@menu/menu_dr"
     app:itemIconTint="@color/black"
     app:itemTextColor="@color/black"
-    android:background="@drawable/back2"/>
+    android:background="@color/white"/>
 
 
 

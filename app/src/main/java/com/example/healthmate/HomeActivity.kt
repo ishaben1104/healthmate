@@ -166,14 +166,12 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     // Function to upload image to Firebase Storage
     private fun uploadImage(imageUri: Uri, userId: String) {
-        val storageRef = FirebaseStorage.getInstance().reference.child("profile_images/$userId.jpg")
+        val storageRef = FirebaseStorage.getInstance().reference.child("patient_images/$userId.jpg")
 
         storageRef.putFile(imageUri)
-            .addOnSuccessListener {
-                // Handle successful upload
-                // You can retrieve the download URL here if needed
+            .addOnSuccessListener { taskSnapshot ->
+                // Get the download URL
                 storageRef.downloadUrl.addOnSuccessListener { downloadUri ->
-                    // Now you can use the download URL as needed
                     val imageUrl = downloadUri.toString()
 
                     // Update the user's profile image URL in the database
@@ -186,12 +184,11 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                             loadNavHeaderImage(imageUrl)
                         }
                     }
-
                 }
             }
             .addOnFailureListener {
                 // Handle failure
-                // ...
+                showToast("Failed to upload image. ${it.message}")
             }
     }
 
@@ -210,7 +207,6 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun updateProfileImageUrl(userId: String, imageUrl: String, callback: (Boolean) -> Unit) {
-
         val databaseRef = FirebaseDatabase.getInstance().reference.child("patients").child(userId)
 
         val userDetailsUpdates = mapOf(
@@ -221,9 +217,13 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         databaseRef.updateChildren(userDetailsUpdates)
             .addOnSuccessListener {
                 // Handle success
+                showToast("Image updated successfully.")
+                callback.invoke(true)
             }
             .addOnFailureListener {
                 // Handle failure
+                showToast("Failed to update image. ${it.message}")
+                callback.invoke(false)
             }
     }
 
@@ -231,6 +231,8 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         private const val PICK_IMAGE_REQUEST_CODE = 1001
     }
 
-
+    fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
 }

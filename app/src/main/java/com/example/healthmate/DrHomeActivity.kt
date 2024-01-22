@@ -19,7 +19,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 
 class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -78,7 +81,7 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 .replace(R.id.fragment_container_pts, fragment_patients()).commit()
 
             R.id.menu_profile_dr -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_pts, FragmentAppointments()).commit()
+                .replace(R.id.fragment_container_pts, FragmentDrUpdateProfile()).commit()
 
             R.id.nav_bookings_dr -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_pts, FragmentAppointments()).commit()
@@ -158,17 +161,14 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         val storageRef = FirebaseStorage.getInstance().reference.child("doctor_images/$userId.jpg")
 
         storageRef.putFile(imageUri)
-            .addOnSuccessListener {
-                // Handle successful upload
-                // You can retrieve the download URL here if needed
+            .addOnSuccessListener { taskSnapshot ->
+                // Get the download URL
                 storageRef.downloadUrl.addOnSuccessListener { downloadUri ->
-                    // Now you can use the download URL as needed
                     val imageUrl = downloadUri.toString()
 
                     // Update the user's profile image URL in the database
                     updateProfileImageUrl(userId, imageUrl) { success ->
                         if (success) {
-
                             val sharedPreferences = getSharedPreferences("MySession", Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.putString("imageURL", imageUrl)
@@ -176,12 +176,11 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                             loadNavHeaderImage(imageUrl)
                         }
                     }
-                    //updateProfileImageUrl(userId, imageUrl)
                 }
             }
             .addOnFailureListener {
                 // Handle failure
-                // ...
+                showToast("Failed to upload image. ${it.message}")
             }
     }
 
@@ -200,8 +199,7 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     }
 
     private fun updateProfileImageUrl(userId: String, imageUrl: String, callback: (Boolean) -> Unit) {
-
-        val databaseRef = FirebaseDatabase.getInstance().reference.child("patients").child(userId)
+        val databaseRef = FirebaseDatabase.getInstance().reference.child("doctors").child(userId)
 
         val userDetailsUpdates = mapOf(
             "imageUrl" to imageUrl
@@ -231,6 +229,5 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         // Handle appointment button click
         // Implement your logic here
     }
-
 
 }

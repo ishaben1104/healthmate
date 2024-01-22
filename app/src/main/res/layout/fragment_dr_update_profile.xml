@@ -1,177 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp"
-    tools:context=".FragmentDrUpdateProfile"
-    android:background="#1E69F0AE"
-    >
+    tools:context=".FragmentDrUpdateProfile">
 
-
-    <ImageView
-        android:id="@+id/Imagelogo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_button_background"
-        android:minHeight="40dp"
-        app:srcCompat="@drawable/_929214_avatar_doctor_health_hospital_man_icon__1_" />
-
-    <TextView
-        android:id="@+id/textView2"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/Imagelogo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:text="@string/edit_profile"
-        android:textColor="#0F1140"
-        android:textSize="25dp" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editTextFirstname_dr"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/textView2"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/edit_text_background"
-        android:hint=" First Name"
-        android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp"
-        tools:ignore="RtlSymmetry" />
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            app:srcCompat="@drawable/doctor"/>
 
-    <EditText
-        android:id="@+id/editTextLastname_dr"
-        android:layout_width="174dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/textView2"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="6dp"
-        android:layout_toEndOf="@id/editTextFirstname_dr"
-        android:background="@drawable/edit_text_background"
-        android:hint=" Last Name"
-        android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp"/>
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginTop="10dp"
+            android:text="@string/edit_profile"
+            android:textAlignment="center"
+            android:textColor="#034C81"
+            android:textSize="24sp" />
 
-    <EditText
-        android:id="@+id/edittextPhone_dr"
-        android:layout_width="366dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/editTextFirstname_dr"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/edit_text_background"
-        android:hint=" Phone"
-        android:inputType="phone"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp" />
+        <EditText
+            android:id="@+id/editTextFirstname_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/heading"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:hint="Firstname" />
 
-    <EditText
-        android:id="@+id/edittextEmailAddress_dr"
-        android:layout_width="364dp"
-        android:layout_height="58dp"
-        android:layout_below="@id/edittextUsername_dr"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/edit_text_background"
-        android:enabled="false"
-        android:hint=" Email"
-        android:inputType="textEmailAddress"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:textColor="#FF8F9091"
-        android:textColorHint="#FF8F9091"
-        android:textStyle="bold"
-        android:paddingStart="8dp"/>
+        <EditText
+            android:id="@+id/editTextLastname_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextFirstname_dr"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:hint="Lastname" />
 
+        <EditText
+            android:id="@+id/edittextPhone_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextLastname_dr"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:ems="10"
+            android:hint="Phone"
+            android:inputType="phone" />
 
-    <EditText
-        android:id="@+id/edittextUsername_dr"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/edittextPhone_dr"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/edit_text_background"
-        android:enabled="false"
-        android:hint=" User Name"
-        android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp"
-        android:textColor="#FF8F9091"
-        android:textColorHighlight="#FF8F9091"
-        android:textColorHint="#FF8F9091"
-        android:textStyle="bold" />
+        <EditText
+            android:id="@+id/edittextEmailAddress_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edittextPhone_dr"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:hint="Email address"
+            android:enabled="false"
+            android:inputType="textEmailAddress" />
 
-    <EditText
-        android:id="@+id/edittextPassword_dr"
-        android:layout_width="174dp"
-        android:layout_height="60dp"
-        android:layout_below="@id/edittextPhone_dr"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="6dp"
-        android:layout_toEndOf="@id/edittextUsername_dr"
-        android:background="@drawable/edit_text_background"
-        android:hint=" Password"
-        android:inputType="textPassword"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp" />
+        <EditText
+            android:id="@+id/edittextDesignation_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edittextEmailAddress_dr"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:hint="Designation" />
 
-    <EditText
-        android:id="@+id/edittextDesignation_dr"
-        android:layout_width="364dp"
-        android:layout_height="58dp"
-        android:layout_below="@id/edittextEmailAddress_dr"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="6dp"
-        android:background="@drawable/edit_text_background"
-        android:hint=" Designation"
-        android:inputType="text"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
-        android:paddingStart="8dp"/>
+        <EditText
+            android:id="@+id/edittextUsername_dr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edittextDesignation_dr"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="30dp"
+            android:enabled="false"
+            android:hint="Username" />
 
-    <Button
-        android:id="@+id/btnUpdatePtProfile"
-        android:layout_width="288dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/edittextDesignation_dr"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="6dp"
-        android:backgroundTint="#2E7D32"
-        android:text="Update Profile"
-        android:textColor="#F8F5F5" />
+        <Button
+            android:id="@+id/btnUpdatePtProfile"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edittextUsername_dr"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#034c81"
+            android:text="Register"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </RelativeLayout>
 
-
-</RelativeLayout>
+</ScrollView>

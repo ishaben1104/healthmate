@@ -2,11 +2,12 @@ package com.example.healthmate
 
 data class Doctor(
     val id: String? = null,
-    val username: String? = null,
-    val firstname: String? = null,
-    val lastname: String? = null,
-    val designation: String? = null,
-    val email: String? = null,
-    val phone: String? = null,
+    var username: String? = null,
+    var firstname: String? = null,
+    var lastname: String? = null,
+    var designation: String? = null,
+    var email: String? = null,
+    var phone: String? = null,
     val password: String? = null,
+    var imageUrl: String? = null
 )
