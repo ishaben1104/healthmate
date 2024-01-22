@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+<group
+    android:checkableBehavior="single"
+    >
+
+    <item
+        android:id="@+id/nav_home"
+        android:title="Home"
+        android:icon="@drawable/ic_house"  />
+    <item
+        android:id="@+id/menu_profile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_profile"
+        />
+    <item
+        android:id="@+id/nav_bookappointment"
+        android:title="Book an Appointment"
+        android:icon="@drawable/ic_app1"  />
+    <item
+        android:id="@+id/nav_bookings"
+        android:title="Appointment History"
+        android:icon="@drawable/ic_appointments"  />
+    <item
+        android:id="@+id/nav_doctors"
+        android:title="Doctors"
+        android:icon="@drawable/ic_doctor"  />
+    <item
+        android:id="@+id/nav_notifications"
+        android:icon="@drawable/bell2"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/nav_chatbot"
+        android:title="Ask Health Mate"
+        android:icon="@drawable/ic_chats"  />
+
+</group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:title="Logout"
+                android:icon="@drawable/ic_logout" />
+        </menu>
+    </item>
+
+</menu>

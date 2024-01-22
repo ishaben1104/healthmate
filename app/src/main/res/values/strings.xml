@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Health Mate</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello Home fragment</string>
+    <string name="profile_image_description">Profile Image</string>
+
+    <string name="open_nav">Open Drawer</string>
+    <string name="close_nav">Close Drawer</string>
+    <string name="upload_icon_description">Upload Image</string>
+    <string name="appointment_button_description">Book an Appointment</string>
+    <string name="patient_avatar_description">Patient Description</string>
+    <string name="enter_your_concerns">Enter your concerns</string>
+    <string name="lbl_appointment_history">Hospital will assign you doctor and notify with the doctor details in the Appointment History within 2 hours. Chances that your appointment time will move within that our according to doctor availability.</string>
+    <string name="lbl_HospitalNote">Note: Hospital and doctor have rights to reschedule or cancel your appointment, but do not worry before doing that you will recieve call from hospital. </string>
+    <string name="edit_profile">Update Profile</string>
+
+    <string name="lblHospitalOverView">Overview</string>
+    <string name="lblHospitalDesc">Welcome to Health Mate, where compassionate care meets dedicated service. At our esteemed institution, we take pride in fostering an environment of warmth, kindness, and unwavering support for all our patients.\n\n Our commitment to your well-being begins with our dedicated team of healthcare professionals. Every member of our staff is not just skilled in their field but also genuinely cares about your health and comfort. From the moment you step through our doors, you\'ll experience a level of kindness and consideration that sets us apart.\n\nPatient health and time are at the forefront of our priorities. We understand that your journey to wellness is unique, and we tailor our services to meet your individual needs. Our state-of-the-art facilities and cutting-edge medical technology ensure that you receive the highest standard of care.\n\nWhat truly distinguishes Health Mate is our unwavering dedication to serving every customer with excellence. Your satisfaction and peace of mind are our top priorities. We strive to make every interaction with us a positive and reassuring experience.\n\nThank you for choosing Health Mate App. Trust us with your health, and let us be your partners on the path to a healthier and happier life.\n\n</string>
+    <string name="choose_your_role">Choose your role</string>
+
+
+</resources>

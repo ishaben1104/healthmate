@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FragmentAppointmentsConfirm">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvScheduledHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scheduled Appointments"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="8dp"/>
+
+    <!-- Message for no scheduled appointments -->
+    <TextView
+        android:id="@+id/tvNoScheduledAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No scheduled appointments."
+        android:textColor="@color/maroon"
+        android:gravity="center"
+        android:visibility="invisible" android:padding="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvappointmentsupdated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider_line"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tvCompletedHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Completed Appointments"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="8dp"/>
+
+    <!-- Message for no scheduled appointments -->
+    <TextView
+        android:id="@+id/tvNoCompleteAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No completed appointments."
+        android:textColor="@color/maroon"
+        android:gravity="center"
+        android:visibility="invisible" android:padding="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCompletedAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider_line"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tvCancelledHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancelled Appointments"
+        android:gravity="center"
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="8dp"/>
+
+    <!-- Message for no scheduled appointments -->
+    <TextView
+        android:id="@+id/tvNoCanceledAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No cancelled appointments."
+        android:textColor="@color/maroon"
+        android:gravity="center"
+        android:visibility="invisible" android:padding="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCancelledAppointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/divider_line"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"/>
+
+</LinearLayout>
+
+</ScrollView>

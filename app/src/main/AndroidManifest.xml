@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.healthmate">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HealthOnGo"
+        tools:targetApi="31">
+        <activity
+            android:name=".DrAvailityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreen"
+            android:exported="true"
+            android:theme="@style/SplashScreenTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DrSignIn_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false"
+            android:theme="@style/Theme.HomeActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="">
+            </meta-data>
+        </activity>
+             <!-- android:name=".welcome_menu" -->
+        <!-- android:exported="false" /> -->
+        <activity
+            android:name=".RoleScreenActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DrSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityWelcome"
+            android:exported="false" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VerifyActivity"
+            android:exported="false" />
+        <activity android:name=".DrSetAvailability" />
+        <activity
+            android:name=".DrHomeActivity"
+            android:exported="false" android:theme="@style/Theme.HomeActivity">
+        <meta-data
+            android:name="android.app.lib_name"
+            android:value="">
+        </meta-data>
+        </activity>
+    </application>
+
+</manifest>

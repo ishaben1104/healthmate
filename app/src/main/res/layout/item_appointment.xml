@@ -1,0 +1,61 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:id="@+id/cardView"
+    >
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/patientNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/appDateTimeTextView"
+        android:layout_below="@id/patientNameTextView"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/txtConcerns"
+        android:layout_below="@id/appDateTimeTextView"
+        android:layout_marginTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"/>
+
+    <Button
+        android:id="@+id/approveButton"
+        android:layout_below="@id/txtConcerns"
+        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/blue"
+        android:textColor="@color/white"
+        android:text="Approve"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_below="@id/txtConcerns"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/approveButton"
+        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/maroon"
+        android:textColor="@color/white"
+        android:text="Cancel"/>
+
+</RelativeLayout>
+
+</androidx.cardview.widget.CardView>

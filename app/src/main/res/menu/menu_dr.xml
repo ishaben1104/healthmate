@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+<group
+    android:checkableBehavior="single"
+    >
+
+    <item
+        android:id="@+id/nav_home_dr"
+        android:title="Home"
+        android:icon="@drawable/ic_house"  />
+    <item
+        android:id="@+id/menu_profile_dr"
+        android:title="Profile"
+        android:icon="@drawable/ic_profile"
+        />
+
+    <item
+        android:id="@+id/nav_bookings_dr"
+        android:title="Appointments"
+        android:icon="@drawable/ic_appointments"  />
+    <item
+        android:id="@+id/nav_notifications_dr"
+        android:icon="@drawable/bell2"
+        android:title="Notifications" />
+    <item
+        android:id="@+id/nav_patients_dr"
+        android:icon="@drawable/ic_patients"
+        android:title="Patients" />
+
+    <item
+        android:id="@+id/nav_dravailability"
+        android:icon="@drawable/ic_clock"
+        android:title="Set Availability" />
+
+</group>
+
+    <item
+        android:title="">
+        <menu>
+            <item
+                android:id="@+id/nav_logout_dr"
+                android:title="Logout"
+                android:icon="@drawable/ic_logout" />
+        </menu>
+    </item>
+
+</menu>
