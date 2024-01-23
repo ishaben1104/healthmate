@@ -219,12 +219,6 @@ class SignUpActivity : AppCompatActivity() {
                         editor.putString("fullname", fullNm)
                         editor.apply()
 
-//                        try {
-//                            sendOTPEmail(email, randomCode.toString())
-//                        }
-//                        catch (e: MessagingException) {
-//                            showToast("Some Error")
-//                    }
                         // Authentication successful, navigate to the welcome activity
                         val intent = Intent(this@SignUpActivity, VerifyActivity::class.java)
                         startActivity(intent)
@@ -308,49 +302,5 @@ class SignUpActivity : AppCompatActivity() {
 
         datePickerDialog.show()
     }
-
-//    fun sendOTPEmail(email: String, otp: String) {
-//        // Set your Gmail credentials
-//        val username = "meemansa.goswami2179@gmail.com"
-//        val password = "Bhavyesh1432"
-//
-//        // Set properties for the SMTP server
-//        val properties = Properties().apply {
-//            put("mail.smtp.auth", "true")
-//            put("mail.smtp.starttls.enable", "true")
-//            put("mail.smtp.host", "smtp.gmail.com")
-//            put("mail.smtp.port", "587")
-//        }
-//
-//        // Create a session with the SMTP server
-//        val session = Session.getInstance(properties, object : Authenticator() {
-//            override fun getPasswordAuthentication(): PasswordAuthentication {
-//                return PasswordAuthentication(username, password)
-//            }
-//        })
-//
-//        try {
-//            // Create a MimeMessage object
-//            val message = MimeMessage(session)
-//
-//            // Set sender and recipient addresses
-//            message.setFrom(InternetAddress(username))
-//            message.addRecipient(Message.RecipientType.TO, InternetAddress(email))
-//
-//            // Set email subject and body
-//            message.subject = "Your OTP Code"
-//            message.setText("Your OTP code is: $otp")
-//
-//            // Send the email
-//            Transport.send(message)
-//
-//            showToast("Email sent successfully")
-//            println("Email sent successfully")
-//
-//        } catch (e: MessagingException) {
-//            showToast("Error")
-//            e.printStackTrace()
-//        }
-//    }
 
 }

@@ -1,5 +1,7 @@
 package com.example.healthmate
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,9 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthmate.R
 
 class FragmentPatientChat : Fragment() {
-
     private val chatMessages = mutableListOf(
-        ChatMessage("Hello, I'm auto bot. Ask me any query related to the application", true)
+        ChatMessage("Hello, I'm auto bot. Ask me any query related to the application", true),
     )
 
     private val randomBotResponses = listOf(
