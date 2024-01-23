@@ -55,7 +55,7 @@ class FragmentDrUpdateProfile : Fragment() {
         val sharedPreferences: SharedPreferences =
             requireContext().getSharedPreferences(sharedPreferencesKey, Context.MODE_PRIVATE)
         val userId: String = sharedPreferences.getString("loginid", null).toString()
-        Log.d("Userids", "Name: ${userId}")
+        Log.d("Userids Doc", "Name: ${userId}")
         drRef = FirebaseDatabase.getInstance().getReference("doctors").child(userId)
 
         // read data
@@ -74,17 +74,17 @@ class FragmentDrUpdateProfile : Fragment() {
 
         drRefe.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val patientData = snapshot.getValue(Doctor::class.java)
+                val doctorData = snapshot.getValue(Doctor::class.java)
 
-                if (patientData != null) {
-                    editTextFirstname.text = Editable.Factory.getInstance().newEditable(patientData.firstname)
-                    editTextLastname.text = Editable.Factory.getInstance().newEditable(patientData.lastname)
-                    edittextPhone.text = Editable.Factory.getInstance().newEditable(patientData.phone)
-                    edittextEmailAddress.text = Editable.Factory.getInstance().newEditable(patientData.email)
-                    edittextUsername.text = Editable.Factory.getInstance().newEditable(patientData.username)
-                    edittextDesignation.text = Editable.Factory.getInstance().newEditable(patientData.designation)
+                if (doctorData != null) {
+                    editTextFirstname.setText(doctorData.firstname)
+                    editTextLastname.setText(doctorData.lastname)
+                    edittextPhone.setText(doctorData.phone)
+                    edittextEmailAddress.setText(doctorData.email)
+                    edittextUsername.setText(doctorData.username)
+                    edittextDesignation.setText(doctorData.designation)
 
-                    Log.d("FirebaseData", "DrName: ${patientData.firstname}, Email: ${patientData.lastname}")
+                    Log.d("FirebaseData", "DrName: ${doctorData.firstname}, Email: ${doctorData.lastname}")
                 }
             }
 
@@ -93,6 +93,7 @@ class FragmentDrUpdateProfile : Fragment() {
             }
         })
     }
+
 
     private fun updateDrData(drId: String) {
         val firstName = editTextFirstname.text.toString()

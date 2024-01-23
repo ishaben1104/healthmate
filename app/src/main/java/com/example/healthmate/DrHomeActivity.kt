@@ -81,7 +81,7 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.nav_home_dr -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_pts, fragment_patients()).commit()
+                .replace(R.id.fragment_container_pts, FragmentDrHome()).commit()
 
             R.id.menu_profile_dr -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_pts, FragmentDrUpdateProfile()).commit()
