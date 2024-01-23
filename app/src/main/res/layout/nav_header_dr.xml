@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:contentDescription="@string/profile_image_description"
             android:paddingTop="10dp"
-            android:src="@drawable/ic_patient1"
+            android:src="@drawable/doctor_avatar"
             app:circleCrop="true" />
 
         <ImageButton
@@ -41,6 +41,15 @@
 
     <TextView
         android:id="@+id/drfull_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doctor Name"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/drdesignation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Doctor Name"

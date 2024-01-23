@@ -45,14 +45,17 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         // Now, find the views within the header view
         val fullNameTextView = headerView.findViewById<TextView>(R.id.drfull_name)
+        val designationTextView = headerView.findViewById<TextView>(R.id.drdesignation)
         val profileImageView = headerView.findViewById<ImageView>(R.id.drprofile_image)
 
         val sharedPreferences = getSharedPreferences("MySession", Context.MODE_PRIVATE)
         val fullname = sharedPreferences.getString("fullname", "")
+        val designation = sharedPreferences.getString("designation", "")
         val imageURL = sharedPreferences.getString("imageURL", "")
         Log.d("drimage-url", imageURL.toString())
 
         fullNameTextView.text = fullname
+        designationTextView.text = designation
         // Load and set profile image using Glide
         if (!imageURL.isNullOrEmpty()) {
             Glide.with(this)

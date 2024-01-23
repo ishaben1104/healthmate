@@ -87,6 +87,7 @@ class DrSignIn_Activity : AppCompatActivity() {
                             val firstname = userSnapshot.child("firstname").getValue(String::class.java)
                             val lastname = userSnapshot.child("lastname").getValue(String::class.java)
                             val imageUrl = userSnapshot.child("imageUrl").getValue(String::class.java)
+                            val designation = userSnapshot.child("designation").getValue(String::class.java)
 
                             val fullNm = "$firstname $lastname"
 
@@ -99,6 +100,8 @@ class DrSignIn_Activity : AppCompatActivity() {
                             editor.putString("fullname", fullNm)
                             editor.putString("imageURL", imageUrl)
                             editor.putString("loginid", LoginId)
+                            editor.putString("designation", designation)
+
                             editor.apply()
 
                             callback(true)
