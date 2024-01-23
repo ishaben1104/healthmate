@@ -95,6 +95,9 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             R.id.nav_dravailability -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_pts, fragment_dr_availability()).commit()
 
+            R.id.nav_chatbot -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container_pts, FragmentPatientChat()).commit()
+
             R.id.nav_logout_dr -> logoutUser()
         }
         drawerLayout.closeDrawer(GravityCompat.START)

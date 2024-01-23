@@ -53,7 +53,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics:21.5.0")
     implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
     implementation("com.google.firebase:firebase-firestore-ktx:24.10.0")
-    implementation ("com.firebaseui:firebase-ui-database:8.0.0")
+    implementation ("com.firebaseui:firebase-ui-database:8.0.2")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

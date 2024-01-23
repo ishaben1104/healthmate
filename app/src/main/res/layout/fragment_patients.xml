@@ -27,7 +27,7 @@
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content"-->
 <!--            android:text="No cancelled appointments."-->
-<!--            android:textColor="@color/maroon"-->
+<!--            android:textColor="@color/grey"-->
 <!--            android:gravity="center"-->
 <!--            android:visibility="invisible" android:padding="8dp"/>-->
 

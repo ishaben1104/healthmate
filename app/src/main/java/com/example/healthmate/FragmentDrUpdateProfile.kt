@@ -70,9 +70,9 @@ class FragmentDrUpdateProfile : Fragment() {
     }
 
     private fun readDataFromFirebase(drId: String) {
-        val drRef = databaseReference.child(drId)
+        val drRefe = databaseReference.child(drId)
 
-        drRef.addValueEventListener(object : ValueEventListener {
+        drRefe.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val patientData = snapshot.getValue(Doctor::class.java)
 

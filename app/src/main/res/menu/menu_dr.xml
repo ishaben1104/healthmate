@@ -37,6 +37,11 @@
         android:icon="@drawable/ic_clock"
         android:title="Set Availability" />
 
+    <item
+        android:id="@+id/nav_chatbot"
+        android:title="Ask Health Mate"
+        android:icon="@drawable/ic_chats"  />
+
 </group>
 
     <item

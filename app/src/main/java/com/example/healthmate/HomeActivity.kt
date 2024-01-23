@@ -95,7 +95,10 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 .replace(R.id.patient_fragment_container, BookingFormFragment()).commit()
 
             R.id.nav_bookings -> supportFragmentManager.beginTransaction()
-                .replace(R.id.patient_fragment_container, FragmentAppointments()).commit()
+                .replace(R.id.patient_fragment_container, FragmentAppointmentsConfirm()).commit()
+
+            R.id.nav_notifications -> supportFragmentManager.beginTransaction()
+                .replace(R.id.patient_fragment_container, FragmentNotifications()).commit()
 
             R.id.nav_doctors -> supportFragmentManager.beginTransaction()
                 .replace(R.id.patient_fragment_container, FragmentDoctorList()).commit()

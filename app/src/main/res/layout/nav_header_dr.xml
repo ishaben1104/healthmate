@@ -11,32 +11,33 @@
     android:padding="16dp"
     android:theme="@style/Theme.HomeActivity">
 
-
-    <ImageView
-        android:id="@+id/drprofile_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:contentDescription="@string/profile_image_description"
-        android:paddingTop="10dp"
-        android:src="@drawable/ic_doctor1"
-        app:circleCrop="true" />
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation="horizontal">
+        android:layout_height="100dp">
 
         <ImageView
-            android:id="@+id/drupload_icon"
+            android:id="@+id/drprofile_image"
             android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:clickable="true"
-            android:contentDescription="@string/upload_icon_description"
-            android:onClick="onDrUploadIconClick"
-            android:src="@drawable/ic_uploadbtn" />
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/profile_image_description"
+            android:paddingTop="10dp"
+            android:src="@drawable/ic_patient1"
+            app:circleCrop="true" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/drupload_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="top|center"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="60dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="onDrUploadIconClick"
+            android:clickable="true"
+            android:src="@drawable/baseline_add_a_photo_24" />
+    </FrameLayout>
 
     <TextView
         android:id="@+id/drfull_name"
