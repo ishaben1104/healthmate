@@ -45,21 +45,22 @@ class DrSignIn_Activity : AppCompatActivity() {
             val username = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
 
-
-            login(username, password) { isSuccess ->
-                if (isSuccess) {
-                    // Login successful, navigate to the next screen or perform other actions
-                    showToast("Login successful!")
-                    val intent = Intent(this@DrSignIn_Activity, DrHomeActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    showToast("Incorrect login information!")
-                    // Login failed, show an error message
+            if (username.isEmpty() || password.isEmpty()) {
+                showToast("Please enter both username and password")
+            } else {
+                login(username, password) { isSuccess ->
+                    if (isSuccess) {
+                        // Login successful, navigate to the next screen or perform other actions
+                        showToast("Login successful!")
+                        val intent = Intent(this@DrSignIn_Activity, DrHomeActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        showToast("Incorrect login information!")
+                        // Login failed, show an error message
+                    }
                 }
             }
-
-        }
-        )
+        })
     }
 
     fun showToast(message: String) {
@@ -69,7 +70,8 @@ class DrSignIn_Activity : AppCompatActivity() {
     // Function to check username availability
     fun login(username: String, password: String, callback: (Boolean) -> Unit) {
         val database = FirebaseDatabase.getInstance()
-        val reference = database.getReference("doctors") // Replace "doctors" with your database node
+        val reference =
+            database.getReference("doctors") // Replace "doctors" with your database node
 
         val loginQuery = reference.orderByChild("username").equalTo(username)
 
@@ -78,21 +80,27 @@ class DrSignIn_Activity : AppCompatActivity() {
                 if (dataSnapshot.exists()) {
                     // Username exists, check password
                     for (userSnapshot in dataSnapshot.children) {
-                        val storedPassword = userSnapshot.child("password").getValue(String::class.java)
+                        val storedPassword =
+                            userSnapshot.child("password").getValue(String::class.java)
 
                         if (password == storedPassword) {
                             // Passwords match, login successful
                             val userId = userSnapshot.key // Retrieve the unique user ID
                             val LoginId = userSnapshot.child("drId").getValue(String::class.java)
-                            val firstname = userSnapshot.child("firstname").getValue(String::class.java)
-                            val lastname = userSnapshot.child("lastname").getValue(String::class.java)
-                            val imageUrl = userSnapshot.child("imageUrl").getValue(String::class.java)
-                            val designation = userSnapshot.child("designation").getValue(String::class.java)
+                            val firstname =
+                                userSnapshot.child("firstname").getValue(String::class.java)
+                            val lastname =
+                                userSnapshot.child("lastname").getValue(String::class.java)
+                            val imageUrl =
+                                userSnapshot.child("imageUrl").getValue(String::class.java)
+                            val designation =
+                                userSnapshot.child("designation").getValue(String::class.java)
 
                             val fullNm = "$firstname $lastname"
 
                             // Set user information in session
-                            val sharedPreferences = getSharedPreferences("MySession", Context.MODE_PRIVATE)
+                            val sharedPreferences =
+                                getSharedPreferences("MySession", Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
 
                             // Assuming userToken is the session value you want to store

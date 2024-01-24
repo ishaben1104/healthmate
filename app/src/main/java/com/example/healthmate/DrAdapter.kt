@@ -41,7 +41,7 @@ class DrAdapter(private val drs: List<tblDoctor>) :
 
             // Load doctors image using Glide library
             val requestOptions = RequestOptions.circleCropTransform()
-            val placeholderDrawable: Drawable? = ContextCompat.getDrawable(itemView.context, R.drawable.ic_doctor1)
+            val placeholderDrawable: Drawable? = ContextCompat.getDrawable(itemView.context, R.drawable.doctor_avatar)
 
             Glide.with(itemView)
                 .load(dr.imageUrl)

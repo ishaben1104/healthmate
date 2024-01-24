@@ -41,7 +41,7 @@ class PatientsAdapter(private val patients: List<tblPatient>) :
 
             // Load patient image using Glide library
             val requestOptions = RequestOptions.circleCropTransform()
-            val placeholderDrawable: Drawable? = ContextCompat.getDrawable(itemView.context, R.drawable.ic_patient1)
+            val placeholderDrawable: Drawable? = ContextCompat.getDrawable(itemView.context, R.drawable.patient_avatar)
 
             Glide.with(itemView)
                 .load(patient.imageUrl)

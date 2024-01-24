@@ -115,7 +115,7 @@ class DrSignUpActivity : AppCompatActivity() {
                 val reference =
                     database.getReference("doctors") // Replace "users" with your desired database node
 
-                ///////// isDoctorExists
+                // isDoctorExists
                 checkUsernameAvailability(username) { isAvailable ->
                     if (isAvailable) {
                         // Username is available, proceed with registration or other actions

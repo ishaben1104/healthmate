@@ -145,24 +145,22 @@
             android:id="@+id/txtInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginBottom="20dp"
-            android:gravity="center"
-            android:text="As currently the mail functions are not working, dynamic OTP generated is shown here and is also stored in Firebase:"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:text="Note: As the email functions are presently non-operational, a dynamically generated OTP is displayed here and concurrently stored in Firebase."
+            android:textColor="#ff0000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/sessCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
             android:text="Code:"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 </RelativeLayout>

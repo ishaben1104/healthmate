@@ -24,7 +24,7 @@ class DoctorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // Load image using Glide or set a default image
         // Glide.with(itemView.context).load(doctor.imageUrl).into(doctorImageView)
         // For simplicity, using a placeholder image
-        doctorImageView.setImageResource(R.drawable.ic_doctor1)
+        doctorImageView.setImageResource(R.drawable.doctor_avatar)
 
         // Handle button click or other interactions
         bookButton.setOnClickListener {

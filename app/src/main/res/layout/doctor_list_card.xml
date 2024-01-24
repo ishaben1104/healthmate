@@ -17,7 +17,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_doctor1"/> <!-- Placeholder image, replace with actual image loading library -->
+        android:src="@drawable/doctor_avatar"/> <!-- Placeholder image, replace with actual image loading library -->
 
     <LinearLayout
         android:layout_width="0dp"
