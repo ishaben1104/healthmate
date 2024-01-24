@@ -54,66 +54,93 @@ class FragmentAppointmentsConfirm : Fragment() {
         recyclerViewComplete.layoutManager = LinearLayoutManager(requireContext())
         recyclerViewCancel.layoutManager = LinearLayoutManager(requireContext())
 
-        val sharedPreferences = requireContext().getSharedPreferences("MySession", Context.MODE_PRIVATE)
-        val patientId = sharedPreferences.getString("loginid", "").toString()
+        //val query = FirebaseDatabase.getInstance().reference.child("appointments").limitToLast(100)
 
-        // Create a reference to the appointments node
-        val appointmentsRef = FirebaseDatabase.getInstance().reference.child("appointments").orderByChild("patientId").equalTo(patientId)
+        val queryScheduled = FirebaseDatabase.getInstance().reference
+            .child("appointments")
+            .orderByChild("status")
+            .equalTo("Scheduled")
 
-        // Create a listener for all appointments for the patient
-        val allAppointmentsListener = object : ValueEventListener {
+        val options = FirebaseRecyclerOptions.Builder<Appointment>()
+            .setQuery(queryScheduled, Appointment::class.java)
+            .build()
+
+        adapterSchedulled = AppointmentAdapter(options)
+
+        adapterSchedulled.startListening()
+
+        queryScheduled.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val allAppointments = mutableListOf<Appointment>()
-//                val scheduledAppointments = mutableListOf<Appointment>()
-                scheduledAppointments = mutableListOf()
-                completedAppointments = mutableListOf()
-                canceledAppointments = mutableListOf()
-
-                for (appointmentSnapshot in snapshot.children) {
-                    val appointment = appointmentSnapshot.getValue(Appointment::class.java)
-                    if (appointment != null) {
-                        allAppointments.add(appointment)
-
-                        // Filter appointments based on status
-                        when (appointment.status) {
-                            "Scheduled" -> (scheduledAppointments as MutableList<Appointment>).add(appointment)
-                            "Completed" -> (completedAppointments as MutableList<Appointment>).add(appointment)
-                            "Canceled" -> (canceledAppointments as MutableList<Appointment>).add(appointment)
-                        }
-                    }
+                if (snapshot.childrenCount == 0L) {
+                    tvNoScheduledAppointments.visibility = View.VISIBLE
+                } else {
+                    tvNoScheduledAppointments.visibility = View.INVISIBLE
                 }
-
-                // Update visibility based on filtered lists
-                tvNoScheduledAppointments.visibility = if (scheduledAppointments.isEmpty()) View.VISIBLE else View.INVISIBLE
-                tvNoCompleteAppointments.visibility = if (completedAppointments.isEmpty()) View.VISIBLE else View.INVISIBLE
-                tvNoCanceledAppointments.visibility = if (canceledAppointments.isEmpty()) View.VISIBLE else View.INVISIBLE
             }
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle the error
             }
-        }
+        })
 
-        // Attach the listener to the appointments reference
-        appointmentsRef.addListenerForSingleValueEvent(allAppointmentsListener)
-
-        // Create FirebaseRecyclerOptions and adapters for each status
-        val optionsScheduled = FirebaseRecyclerOptions.Builder<Appointment>()
-            .setQuery(appointmentsRef, Appointment::class.java)
-            .build()
-        adapterSchedulled = AppointmentAdapter(optionsScheduled)
         recyclerView.adapter = adapterSchedulled
+//        -----------------------------------------------------------
+        val queryCompleted = FirebaseDatabase.getInstance().reference
+            .child("appointments")
+            .orderByChild("status")
+            .equalTo("Completed")
 
-        val optionsCompleted = FirebaseRecyclerOptions.Builder<Appointment>()
-            .setQuery(appointmentsRef, Appointment::class.java)
+        val optionsComplete = FirebaseRecyclerOptions.Builder<Appointment>()
+            .setQuery(queryCompleted, Appointment::class.java)
             .build()
-        adapterComplete = AppointmentAdapter(optionsCompleted)
+
+        adapterComplete = AppointmentAdapter(optionsComplete)
+
+        adapterComplete.startListening()
+
+        queryCompleted.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.childrenCount == 0L) {
+                    tvNoCompleteAppointments.visibility = View.VISIBLE
+                } else {
+                    tvNoCompleteAppointments.visibility = View.INVISIBLE
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+            }
+        })
         recyclerViewComplete.adapter = adapterComplete
 
-        val optionsCanceled = FirebaseRecyclerOptions.Builder<Appointment>()
-            .setQuery(appointmentsRef, Appointment::class.java)
+//        -----------------------------------------------------------
+
+
+        val queryCancelled = FirebaseDatabase.getInstance().reference
+            .child("appointments")
+            .orderByChild("status")
+            .equalTo("Cancelled")
+
+        val optionsCancel = FirebaseRecyclerOptions.Builder<Appointment>()
+            .setQuery(queryCancelled, Appointment::class.java)
             .build()
-        adapterCancel = AppointmentAdapter(optionsCanceled)
+
+        adapterCancel = AppointmentAdapter(optionsCancel)
+        adapterCancel.startListening()
+
+        queryCancelled.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.childrenCount == 0L) {
+                    tvNoCanceledAppointments.visibility = View.VISIBLE
+                } else {
+                    tvNoCanceledAppointments.visibility = View.INVISIBLE
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle the error
+            }
+        })
         recyclerViewCancel.adapter = adapterCancel
 
         return view

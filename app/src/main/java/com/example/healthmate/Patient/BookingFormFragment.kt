@@ -106,7 +106,7 @@ class BookingFormFragment : Fragment() {
                     concerns = message,
                     doctorId = doctorId,
                     patientId = patientId,
-                    status = "Scheduled"
+                    status = "Pending"
                 )
 
                 // Check for duplicate appointments

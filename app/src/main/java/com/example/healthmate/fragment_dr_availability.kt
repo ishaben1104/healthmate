@@ -2,6 +2,7 @@ package com.example.healthmate
 
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.icu.util.Calendar
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -65,7 +66,12 @@ class fragment_dr_availability : Fragment() {
 
                 if (shouldRedirect) {
                     saveAvailability(doctorId)
+                    // Redirect or handle success as needed
+                    showToast("Availability set successfully")
+                    val intent = Intent(requireContext(), DrHomeActivity::class.java)
+                    startActivity(intent)
                 }
+
             } else {
                 Toast.makeText(requireContext(), "Error: Doctor ID not found.", Toast.LENGTH_SHORT).show()
             }
@@ -138,6 +144,10 @@ class fragment_dr_availability : Fragment() {
             dayReference.child("timeOut").setValue(timeOut)
         }
 
-        // Redirect or handle success as needed
     }
+
+    fun showToast(message: String) {
+        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+    }
+
 }

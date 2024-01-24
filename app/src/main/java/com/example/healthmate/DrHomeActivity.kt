@@ -87,7 +87,7 @@ class DrHomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
                 .replace(R.id.fragment_container_pts, FragmentDrUpdateProfile()).commit()
 
             R.id.nav_bookings_dr -> supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_pts, FragmentAppointments()).commit()
+                .replace(R.id.fragment_container_pts, FragmentAppointmentsConfirm()).commit()
 
             R.id.nav_notifications_dr -> supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container_pts, FragmentAppointments()).commit()

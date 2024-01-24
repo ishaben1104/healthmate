@@ -107,7 +107,7 @@ class DrSignIn_Activity : AppCompatActivity() {
                             editor.putString("username", username)
                             editor.putString("fullname", fullNm)
                             editor.putString("imageURL", imageUrl)
-                            editor.putString("loginid", LoginId)
+                            editor.putString("loginid", userId)
                             editor.putString("designation", designation)
 
                             editor.apply()

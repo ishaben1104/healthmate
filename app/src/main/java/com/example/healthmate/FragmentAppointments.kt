@@ -34,7 +34,7 @@
             val query = FirebaseDatabase.getInstance().reference
                 .child("appointments")
                 .orderByChild("status")
-                .equalTo("Scheduled")
+                .equalTo("Pending")
 
             val options = FirebaseRecyclerOptions.Builder<Appointment>()
                 .setQuery(query, Appointment::class.java)
