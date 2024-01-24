@@ -20,7 +20,7 @@
             android:id="@+id/imageViewDr"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:src="@drawable/ic_patient1"
+            android:src="@drawable/patient_avatar"
             android:contentDescription="@string/patient_avatar_description"/>
 
         <!-- Patient details -->

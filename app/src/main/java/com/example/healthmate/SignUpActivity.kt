@@ -49,11 +49,11 @@ class SignUpActivity : AppCompatActivity() {
 
         switchVIP.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
-                textViewVIPStatus.text = "VIP patient type pays yearly payment of £350, covers dental treatment or minor surgery."
+                textViewVIPStatus.text = "Note: VIP patients are required to make an annual payment of £350, which covers dental treatments and minor surgeries"
                 PatientType = "VIP"
                 sessPayAmount = 350
             } else {
-                textViewVIPStatus.text = "Normal patient type pays yearly payment of £50, where they need to pay extra for any dental treatment or surgery."
+                textViewVIPStatus.text = "Note: Normal patients are required to make an annual payment of £50, and they may incur additional charges for dental treatments."
                 PatientType = "Normal"
                 sessPayAmount = 50
             }

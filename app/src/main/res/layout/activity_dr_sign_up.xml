@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/logo"
             android:layout_marginTop="10dp"
-            android:text="New Doctor Register"
+            android:text="Register"
             android:textAlignment="center"
             android:textColor="#034C81"
             android:textSize="24sp" />

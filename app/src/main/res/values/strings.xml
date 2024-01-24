@@ -10,8 +10,6 @@
     <string name="appointment_button_description">Book an Appointment</string>
     <string name="patient_avatar_description">Patient Description</string>
     <string name="enter_your_concerns">Enter your concerns</string>
-    <string name="lbl_appointment_history">Hospital will assign you doctor and notify with the doctor details in the Appointment History within 2 hours. Chances that your appointment time will move within that our according to doctor availability.</string>
-    <string name="lbl_HospitalNote">Note: Hospital and doctor have rights to reschedule or cancel your appointment, but do not worry before doing that you will recieve call from hospital. </string>
     <string name="edit_profile">Update Profile</string>
 
     <string name="lblHospitalOverView">Overview</string>
